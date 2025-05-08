@@ -6,7 +6,7 @@
     <RootNamespace>M03_Project</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>FunctionAdvertising</StartupObject>
+    <StartupObject>RequiredFunBehaviour</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

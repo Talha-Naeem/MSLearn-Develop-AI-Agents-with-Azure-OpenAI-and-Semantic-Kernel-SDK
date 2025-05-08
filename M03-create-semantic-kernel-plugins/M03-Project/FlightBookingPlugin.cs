@@ -7,7 +7,7 @@ public class FlightBookingPlugin
     private const string FilePath = "flights.json";
     private List<FlightModel> flights;
 
-ForCity    public FlightBookingPlugin()
+    public FlightBookingPlugin()
     {
         // Load flights from the file
         flights = LoadFlightsFromFile();

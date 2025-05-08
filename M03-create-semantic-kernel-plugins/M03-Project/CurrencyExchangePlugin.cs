@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Microsoft.SemanticKernel;
 
-class CurrencyExchangePlugin
+public class CurrencyExchangePlugin
 {
     // A dictionary that stores exchange rates for demonstration
     private static Dictionary<string, decimal> exchangeRates = new Dictionary<string, decimal>
@@ -28,11 +28,17 @@ class CurrencyExchangePlugin
         }
     }
 
-    [KernelFunction("convert_currency")]
-    [Description("Converts an amount from one currency to another, for example USD to EUR")]
-    public static decimal ConvertCurrency(decimal amount, string fromCurrency, string toCurrency)
+    
+
+    [KernelFunction, Description("Converts an amount from one currency to another, for example USD to EUR")]
+    public string convert_currency(
+        [Description("Amount to convert")] decimal amount,
+        [Description("Currency to convert from, like USD")] string from,
+        [Description("Currency to convert to, like JPY")] string to)
     {
-        decimal exchangeRate = GetExchangeRate(fromCurrency, toCurrency);
-        return amount * exchangeRate;
+        decimal rate = GetExchangeRate(from, to);
+        decimal result = amount * rate;
+        return $"{amount} {from} = {result} {to}";
+        
     }
 }
